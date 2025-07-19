@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="ChemfuelTank"]/comps</xpath>
+        <value>
+            <comps>
+                <li Class="PipeSystem.CompProperties_ResourceStorage">
+                    <pipeNet>VCHE_ChemfuelNet</pipeNet>
+                    <storageCapacity>250</storageCapacity>
+                    <barSize>(1.3, 0.25)</barSize>
+                    <margin>0.1</margin>
+                    <centerOffset>(0, 0, 0.35)</centerOffset>
+                    <extractOptions>
+                        <texPath>UI/Gizmos/ExtractChemfuel</texPath>
+                        <labelKey>VCHE_ExtractChemfuel</labelKey>
+                        <descKey>VCHE_ExtractChemfuelDesc</descKey>
+                        <extractAmount>50</extractAmount>
+                        <thing>Chemfuel</thing>
+                        <ratio>1</ratio>
+                    </extractOptions>
+                </li>
+                <li Class="PipeSystem.CompProperties_ExplosiveContent">
+                    <explosiveMaxRadius>2</explosiveMaxRadius>
+                    <!-- Vanilla options below -->
+                    <explosiveDamageType>Flame</explosiveDamageType>
+                    <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+                    <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+                    <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+                    <preExplosionSpawnChance>1</preExplosionSpawnChance>
+                    <wickTicks>70~150</wickTicks>
+                </li>
+            </comps> 
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="LargeChemfuelTank"]/comps</xpath>
+        <value>
+            <comps>
+                <li Class="PipeSystem.CompProperties_ResourceStorage">
+                    <pipeNet>VCHE_ChemfuelNet</pipeNet>
+                    <storageCapacity>750</storageCapacity>
+                    <barSize>(1.3, 0.25)</barSize>
+                    <margin>0.1</margin>
+                    <centerOffset>(0, 0, 0.35)</centerOffset>
+                    <extractOptions>
+                        <texPath>UI/Gizmos/ExtractChemfuel</texPath>
+                        <labelKey>VCHE_ExtractChemfuel</labelKey>
+                        <descKey>VCHE_ExtractChemfuelDesc</descKey>
+                        <extractAmount>50</extractAmount>
+                        <thing>Chemfuel</thing>
+                        <ratio>1</ratio>
+                    </extractOptions>
+                </li>
+                <li Class="PipeSystem.CompProperties_ExplosiveContent">
+                    <explosiveMaxRadius>4</explosiveMaxRadius>
+                    <!-- Vanilla options below -->
+                    <explosiveDamageType>Flame</explosiveDamageType>
+                    <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+                    <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+                    <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+                    <preExplosionSpawnChance>1</preExplosionSpawnChance>
+                    <wickTicks>70~150</wickTicks>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="GravEngine"]/comps</xpath>
+        <value>
+            <li Class="PipeSystem.CompProperties_ResourceTrader">
+                <pipeNet>VCHE_ChemfuelNet</pipeNet>
+            </li>
+        </value>
+    </Operation>
+    
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ScenarioDef[defName="TheGravship"]/scenario/parts</xpath>
+        <value>
+            <li Class="ScenPart_StartingThing_Defined">
+                <def>StartingThing_Defined</def>
+                <thingDef>Chemfuel</thingDef>
+                <count>600</count>
+            </li>
+            <li Class="ScenPart_StartingThing_Defined">
+                <def>StartingThing_Defined</def>
+                <thingDef>VCHE_ChemfuelDrain</thingDef>
+                <count>1</count>
+            </li>
+        </value>
+    </Operation>
+    
+</Patch>
