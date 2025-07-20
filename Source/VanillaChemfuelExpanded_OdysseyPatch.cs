@@ -8,16 +8,11 @@ namespace VanillaChemfuelExpanded_OdysseyPatch
     {
         static VanillaChemfuelExpanded_OdysseyPatch()
         {
-            Log.Message("Hello, world!");
 #if DEBUG
             Harmony.DEBUG = true;
 #endif
             var harmony = new Harmony("Bulldog.VanillaChemfuelExpanded_OdysseyPatch");
             harmony.PatchAll();
         }
-    }
-
-    public class ModExtension : ThingComp
-    {
     }
 }
